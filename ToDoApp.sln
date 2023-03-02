@@ -11,13 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B726B450-BAC5-4EEB-B959-67D38857F633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Entities", "ToDoApp.Entities\ToDoApp.Entities.csproj", "{298D4652-1356-46C4-AF94-5200B835DA3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Entities", "ToDoApp.Entities\ToDoApp.Entities.csproj", "{298D4652-1356-46C4-AF94-5200B835DA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.UseCases", "ToDoApp.UseCases\ToDoApp.UseCases.csproj", "{A8D8586B-7DD5-4B6F-8D18-2F8311BA05F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.UseCases", "ToDoApp.UseCases\ToDoApp.UseCases.csproj", "{A8D8586B-7DD5-4B6F-8D18-2F8311BA05F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{298D4652-1356-46C4-AF94-5200B835DA3D} = {298D4652-1356-46C4-AF94-5200B835DA3D}
+		{F1A2A7AB-DB76-43DA-BDC1-10F4595F0982} = {F1A2A7AB-DB76-43DA-BDC1-10F4595F0982}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.WebAPI", "ToDoApp.WebAPI\ToDoApp.WebAPI.csproj", "{4273FF5C-55E8-4D75-9FA0-0D9107F4058B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.WebAPI", "ToDoApp.WebAPI\ToDoApp.WebAPI.csproj", "{4273FF5C-55E8-4D75-9FA0-0D9107F4058B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{298D4652-1356-46C4-AF94-5200B835DA3D} = {298D4652-1356-46C4-AF94-5200B835DA3D}
+		{A8D8586B-7DD5-4B6F-8D18-2F8311BA05F7} = {A8D8586B-7DD5-4B6F-8D18-2F8311BA05F7}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Infrastructure.Interfaces", "ToDoApp.Infrastructure.Interfaces\ToDoApp.Infrastructure.Interfaces.csproj", "{F1A2A7AB-DB76-43DA-BDC1-10F4595F0982}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.Infrastructure.Interfaces", "ToDoApp.Infrastructure.Interfaces\ToDoApp.Infrastructure.Interfaces.csproj", "{F1A2A7AB-DB76-43DA-BDC1-10F4595F0982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

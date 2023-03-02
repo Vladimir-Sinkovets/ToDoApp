@@ -11,7 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ToDoTask\Queries\" />
+    <Folder Include="Features\ToDoTaskFeatures\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.Infrastructure.Interfaces\ToDoApp.Infrastructure.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

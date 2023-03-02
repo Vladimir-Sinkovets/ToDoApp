@@ -8,7 +8,7 @@ namespace ToDoApp.Entities.Models
 {
     public class ToDoTaskData
     {
-        public int Guid { get; set; }
+        public Guid Id { get; set; }
         public string Text { get; set; }
 
     }

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\ToDoApp.Entities\ToDoApp.Entities.csproj" />
   </ItemGroup>
 
 </Project>
