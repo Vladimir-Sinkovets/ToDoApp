@@ -10,6 +10,6 @@ namespace ToDoApp.UseCases.ToDoTasks.Commands.DeleteToDoTask
     public class DeleteToDoTaskCommand : IRequest<Unit>
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-﻿namespace ToDoApp.Entities.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace ToDoApp.Entities.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+
     }
 }

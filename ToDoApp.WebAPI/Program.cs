@@ -1,4 +1,11 @@
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using ToDoApp.DataAccess.MsSql;
+using ToDoApp.Entities.Models;
+using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
+
 namespace ToDoApp.WebAPI
 {
     public class Program
@@ -7,16 +14,24 @@ namespace ToDoApp.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            string connection = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+            {
+                opt.UseSqlServer(connection);
+            });
+
+            builder.Services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddTransient<IDbContext, ApplicationDbContext>();
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -26,7 +41,6 @@ namespace ToDoApp.WebAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
