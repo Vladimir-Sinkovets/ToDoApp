@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using ToDoApp.DataAccess.MsSql;
 using ToDoApp.Entities.Models;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
+using ToDoApp.UseCases;
+using ToDoApp.UseCases.Common.MapperProfiles;
 
 namespace ToDoApp.WebAPI
 {
@@ -14,11 +16,16 @@ namespace ToDoApp.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            string connection = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper(typeof(ToDoTaskMappingProfile));
+            
+            builder.Services.AddUseCases();
+
+            
+            string connection = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
             builder.Services.AddDbContext<ApplicationDbContext>(opt =>
             {
