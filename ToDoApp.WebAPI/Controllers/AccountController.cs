@@ -37,7 +37,7 @@ namespace ToDoApp.WebAPI.Controllers
             var result = await _mediator.Send(registerUserCommand);
 
             return result.IsSuccessed == true ? 
-                Json(new { IsSuccessed = result.IsSuccessed }) : 
+                Json(new { result.IsSuccessed }) : 
                 Json(result);
         }
     }
