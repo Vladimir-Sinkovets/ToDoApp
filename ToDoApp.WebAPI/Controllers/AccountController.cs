@@ -11,7 +11,7 @@ namespace ToDoApp.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
@@ -30,7 +30,7 @@ namespace ToDoApp.WebAPI.Controllers
 
             var signInResult = await _mediator.Send(signInCommand);
 
-            return Json(new { signInResult.Succeeded });
+            return Json(new { signInResult.Succeeded }, StatusCodes.Status200OK);
         }
 
         [HttpPost]
