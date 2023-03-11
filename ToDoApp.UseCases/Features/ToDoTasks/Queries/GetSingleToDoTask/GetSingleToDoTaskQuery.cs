@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace ToDoApp.UseCases.ToDoTasks.Queries.GetSingleToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask
 {
     public class GetSingleToDoTaskQuery : IRequest<ToDoTaskDto>
     {

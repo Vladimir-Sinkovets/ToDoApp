@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.UseCases.Account.Commands.RegisterUser
+namespace ToDoApp.UseCases.Features.Account.Commands.RegisterUser
 {
     public class RegisterUserCommand : IRequest<RegisterUserCommandResult>
     {

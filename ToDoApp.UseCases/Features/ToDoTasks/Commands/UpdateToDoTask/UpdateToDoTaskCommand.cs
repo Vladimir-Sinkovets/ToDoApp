@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.UseCases.ToDoTasks.Commands.UpdateToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Commands.UpdateToDoTask
 {
     public class UpdateToDoTaskCommand : IRequest<Guid>
     {

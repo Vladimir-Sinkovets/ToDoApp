@@ -5,7 +5,7 @@ using ToDoApp.Entities.Models;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
 using ToDoApp.UseCases.Common.Exceptions;
 
-namespace ToDoApp.UseCases.ToDoTasks.Commands.UpdateToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Commands.UpdateToDoTask
 {
     public class UpdateToDoTaskCommandHandler : IRequestHandler<UpdateToDoTaskCommand, Guid>
     {

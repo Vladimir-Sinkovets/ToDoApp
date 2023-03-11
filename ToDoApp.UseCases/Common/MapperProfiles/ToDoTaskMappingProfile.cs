@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToDoApp.Entities.Models;
-using ToDoApp.UseCases.ToDoTasks.Queries.GetSingleToDoTask;
+using ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask;
 
 namespace ToDoApp.UseCases.Common.MapperProfiles
 {

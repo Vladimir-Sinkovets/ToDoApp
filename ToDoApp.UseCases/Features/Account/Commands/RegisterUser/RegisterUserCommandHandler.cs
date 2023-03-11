@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDoApp.Entities.Models;
 
-namespace ToDoApp.UseCases.Account.Commands.RegisterUser
+namespace ToDoApp.UseCases.Features.Account.Commands.RegisterUser
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, RegisterUserCommandResult>
     {
@@ -22,15 +22,15 @@ namespace ToDoApp.UseCases.Account.Commands.RegisterUser
         {
             var user = new User()
             {
-                Email= request.Email,
-                UserName= request.UserName,
+                Email = request.Email,
+                UserName = request.UserName,
             };
 
             var createResult = await _userManager.CreateAsync(user, request.Password);
 
             var registerResult = new RegisterUserCommandResult()
             {
-                IsSuccessed = createResult.Succeeded,
+                Succeeded = createResult.Succeeded,
                 Errors = createResult.Errors.Select(er => er.Description)
             };
 

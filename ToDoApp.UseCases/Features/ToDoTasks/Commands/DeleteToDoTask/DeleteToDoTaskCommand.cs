@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoApp.UseCases.ToDoTasks.Commands.DeleteToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Commands.DeleteToDoTask
 {
     public class DeleteToDoTaskCommand : IRequest<Unit>
     {
