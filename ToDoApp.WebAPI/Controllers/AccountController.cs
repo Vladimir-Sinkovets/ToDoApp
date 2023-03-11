@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.UseCases.Features.Account.Commands.Logout;
 using ToDoApp.UseCases.Features.Account.Commands.RegisterUser;
