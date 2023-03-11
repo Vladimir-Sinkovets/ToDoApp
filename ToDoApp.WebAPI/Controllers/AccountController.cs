@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ToDoApp.UseCases.Features.Account.Commands.Logout;
 using ToDoApp.UseCases.Features.Account.Commands.RegisterUser;
 using ToDoApp.UseCases.Features.Account.Commands.SignIn;
 using ToDoApp.WebAPI.Models.Account;
@@ -30,15 +29,6 @@ namespace ToDoApp.WebAPI.Controllers
             var signInResult = await _mediator.Send(signInCommand);
 
             return Json(new { signInResult.Succeeded }, StatusCodes.Status200OK);
-        }
-
-        [HttpPost]
-        [Route("logout")]
-        public async Task<IActionResult> LogoutAsync()
-        {
-            await _mediator.Send(new LogoutCommand());
-
-            return Ok();
         }
 
         [HttpPost]
