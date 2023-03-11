@@ -7,6 +7,8 @@ using ToDoApp.Entities.Models;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
 using ToDoApp.UseCases;
 using ToDoApp.UseCases.Common.MapperProfiles;
+using ToDoApp.WebAPI.Controllers;
+using ToDoApp.WebAPI.MappingProfiles;
 
 namespace ToDoApp.WebAPI
 {
@@ -20,7 +22,9 @@ namespace ToDoApp.WebAPI
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddAutoMapper(typeof(ToDoTaskMappingProfile));
+            builder.Services.AddAutoMapper(
+                typeof(ToDoTaskMappingProfile),
+                typeof(AccountModelsProfile));
             
             builder.Services.AddUseCases();
 

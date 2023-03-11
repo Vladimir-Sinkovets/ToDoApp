@@ -3,7 +3,6 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using ToDoApp.UseCases.Common.Behaviors;
-using ToDoApp.UseCases.Account.Commands.RegisterUser;
 
 namespace ToDoApp.UseCases
 {
