@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
+using ToDoApp.UseCases.Common.Exceptions;
 
 namespace ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask
 {
@@ -20,6 +21,11 @@ namespace ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask
         {
             var toDoTask = await _dbContext.ToDoTasks
                 .FirstOrDefaultAsync(t => t.Id == request.Id && t.UserId == request.UserId, cancellationToken);
+
+            if (toDoTask== null)
+            {
+                throw new NotFoundException(nameof(ToDoTaskDto), request.Id);
+            }
 
             var dto = _mapper.Map<ToDoTaskDto>(toDoTask);
 
