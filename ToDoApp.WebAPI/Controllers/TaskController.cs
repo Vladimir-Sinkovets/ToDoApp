@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDoApp.UseCases.Features.ToDoTasks.Commands.CreateToDoTask;
 using ToDoApp.UseCases.Features.ToDoTasks.Commands.UpdateToDoTask;
 using ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask;
+using ToDoApp.WebAPI.Models.Task;
 
 namespace ToDoApp.WebAPI.Controllers
 {
@@ -37,9 +38,18 @@ namespace ToDoApp.WebAPI.Controllers
 
         [HttpPost]
         [Route("create")]
-        public IActionResult Create(CreateToDoTaskCommand createToDoTask)
+        public async Task<IActionResult> Create(CreateToDoTaskModel model)
         {
-            return Json(new { });
+            var createToDoTask = new CreateToDoTaskCommand
+            {
+                Deadline = model.Deadline,
+                UserId = UserId,
+                Text = model.Text,
+            };
+
+            var newTodoTaskId = await _mediator.Send(createToDoTask);
+
+            return Json(new { NewId = newTodoTaskId });
         }
         
         [HttpDelete]
