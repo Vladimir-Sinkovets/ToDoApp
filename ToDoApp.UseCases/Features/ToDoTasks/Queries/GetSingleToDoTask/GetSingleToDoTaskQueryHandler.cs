@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
 
-namespace ToDoApp.UseCases.ToDoTasks.Queries.GetSingleToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask
 {
     internal class GetSingleToDoTaskQueryHandler : IRequestHandler<GetSingleToDoTaskQuery, ToDoTaskDto>
     {

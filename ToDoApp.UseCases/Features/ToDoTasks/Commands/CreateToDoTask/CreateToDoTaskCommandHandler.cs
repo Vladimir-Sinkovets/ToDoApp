@@ -2,7 +2,7 @@
 using ToDoApp.Entities.Models;
 using ToDoApp.Infrastructure.Interfaces.DataAccessInterfaces;
 
-namespace ToDoApp.UseCases.ToDoTasks.Commands.CreateToDoTask
+namespace ToDoApp.UseCases.Features.ToDoTasks.Commands.CreateToDoTask
 {
     public class CreateToDoTaskCommandHandler : IRequestHandler<CreateToDoTaskCommand, Guid>
     {
