@@ -24,7 +24,7 @@ namespace ToDoApp.WebAPI.Controllers
 
         [HttpGet]
         [Route("get")]
-        public async Task<IActionResult> GetAsync(string id)
+        public async Task<IActionResult> Get(string id)
         {
             var getSingleToDoTaskQuery = new GetSingleToDoTaskQuery()
             {
@@ -50,7 +50,7 @@ namespace ToDoApp.WebAPI.Controllers
 
             var newTodoTaskId = await _mediator.Send(createToDoTask);
 
-            return Created("https:local/prekol", new { NewId = newTodoTaskId });
+            return CreatedAtAction(nameof(Get), new { id = newTodoTaskId }, new { NewId = newTodoTaskId });
         }
         
         [HttpDelete]
