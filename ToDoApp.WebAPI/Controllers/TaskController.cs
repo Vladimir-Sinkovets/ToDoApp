@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoApp.UseCases.Features.ToDoTasks.Commands.CreateToDoTask;
+using ToDoApp.UseCases.Features.ToDoTasks.Commands.DeleteToDoTask;
 using ToDoApp.UseCases.Features.ToDoTasks.Commands.UpdateToDoTask;
 using ToDoApp.UseCases.Features.ToDoTasks.Queries.GetSingleToDoTask;
 using ToDoApp.WebAPI.Models.Task;
@@ -49,21 +50,39 @@ namespace ToDoApp.WebAPI.Controllers
 
             var newTodoTaskId = await _mediator.Send(createToDoTask);
 
-            return Json(new { NewId = newTodoTaskId });
+            return Created("https:local/prekol", new { NewId = newTodoTaskId });
         }
         
         [HttpDelete]
         [Route("delete")]
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
-            return Json(new { });
+            var deleteToDoTaskCommand = new DeleteToDoTaskCommand
+            {
+                Id = Guid.Parse(id),
+                UserId = UserId,
+            };
+
+            await _mediator.Send(deleteToDoTaskCommand);
+
+            return Json(new { Succeeded = true });
         }
         
         [HttpPost]
         [Route("update")]
-        public IActionResult Upadate(UpdateToDoTaskCommand updateToDoTask)
+        public async Task<IActionResult> Upadate(UpdateToDoTaskModel model)
         {
-            return Json(new { });
+            var updateToDoTaskCommand = new UpdateToDoTaskCommand
+            {
+                Id = model.Id,
+                Text = model.Text,
+                Deadline = model.Deadline,
+                UserId = UserId,
+            };
+
+            await _mediator.Send(updateToDoTaskCommand);
+
+            return Json(new { Succeeded = true });
         }
     }
 }
