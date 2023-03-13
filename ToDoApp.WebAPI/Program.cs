@@ -24,10 +24,10 @@ namespace ToDoApp.WebAPI
             builder.Services.AddAutoMapper(
                 typeof(ToDoTaskMappingProfile),
                 typeof(AccountModelsProfile));
-            
+
             builder.Services.AddUseCases();
 
-            
+
             string connection = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
             builder.Services.AddDbContext<ApplicationDbContext>(opt =>
